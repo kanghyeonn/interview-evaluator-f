@@ -1,23 +1,52 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# WebStorm 관련
+.idea/
+*.iml
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# Node.js 관련
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 환경 변수 파일
+.env
+.env.*
+
+# 빌드 산출물
+build/
+dist/
+s
+# React 관련
+coverage/
+*.log
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# TypeScript
+*.tsbuildinfo
+
+# 백엔드(FastAPI)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+venv/
+.env
+*.log
+
+# 기타 IDE 설정
+.vscode/
+
+# OS, 로그 등 기타
+*.swp
+*.swo
+*.bak
+*.tmp
