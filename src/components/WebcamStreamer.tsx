@@ -5,9 +5,10 @@ interface Props {
     isRecording: boolean;
     onTranscriptUpdate?: (text: string) => void;
     onExpressionUpdate?: (emotion: string) => void;
+    onFeedbackUpdate?: (feedback: any) => void;
 }
 
-const WebcamStreamer: React.FC<Props> = ({ isRecording, onTranscriptUpdate, onExpressionUpdate }) => {
+const WebcamStreamer: React.FC<Props> = ({ isRecording, onTranscriptUpdate, onExpressionUpdate, onFeedbackUpdate }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const streamRef = useRef<MediaStream | null>(null);
@@ -85,6 +86,7 @@ const WebcamStreamer: React.FC<Props> = ({ isRecording, onTranscriptUpdate, onEx
                 transcriptSocketRef.current.onmessage = (event) => {
                     const data = JSON.parse(event.data);
                     onTranscriptUpdate?.(data.transcript);
+                    onFeedbackUpdate?.(data.feedback);
                 };
 
                 transcriptSocketRef.current.onclose = () => {
